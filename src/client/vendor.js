@@ -1,0 +1,6 @@
+import 'babel-polyfill'
+import 'react'
+import 'react-dom'
+import 'react-router'
+import 'react-redux'
+import 'react-router-redux'

@@ -1,0 +1,8 @@
+{
+  "javascript": {
+    "main": "http://localhost:8667/dist/main-cef303ee505355eea9df.js",
+    "vendor": "http://localhost:8667/dist/vendor-cef303ee505355eea9df.js"
+  },
+  "styles": {},
+  "assets": {}
+}
