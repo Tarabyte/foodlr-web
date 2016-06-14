@@ -1,8 +1,15 @@
 {
   "javascript": {
-    "main": "http://localhost:8667/dist/main-cef303ee505355eea9df.js",
-    "vendor": "http://localhost:8667/dist/vendor-cef303ee505355eea9df.js"
+    "main": "http://localhost:8667/dist/main-e6698f1f4836d711fbc4.js",
+    "vendor": "http://localhost:8667/dist/vendor-e6698f1f4836d711fbc4.js"
   },
   "styles": {},
-  "assets": {}
+  "assets": {
+    "./src/containers/App/logo.png": "http://localhost:8667/dist/a3decd6dfa4f9e11638ad30e9b80a8c6.png",
+    "./src/containers/App/App.css": {
+      "app-container": "app-container___UEQBv",
+      "appContainer": "app-container___UEQBv",
+      "_style": ".app-container___UEQBv {\r\n  color: red;\r\n}"
+    }
+  }
 }

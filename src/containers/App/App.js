@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const App = props => {
+
+const App = props => {
   const { children } = props
+  const logo = require('./logo.png') // eslint-disable-line global-require
+  const styles = require('./App.css')// eslint-disable-line global-require
 
   return (
-    <div className="app-container">
+    <div className={styles.appContainer}>
+      <header>
+        <img src={logo} alt="FoodZzilla logo" />
+      </header>
       <main>
         {children}
       </main>
