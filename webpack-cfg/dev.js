@@ -12,8 +12,8 @@ const isomorphicPlugin = new WebpackIsomorphicToolsPlugin(isomorphicToolsConfig)
 
 const styleLoaderConfig = require('./commons/dev-style-loader-config')
 
-module.exports = url => Object.assign({}, base, {
-  debug: true,
+module.exports = url => Object.assign({}, base, styleLoaderConfig({
+  debug: false,
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
@@ -53,8 +53,7 @@ module.exports = url => Object.assign({}, base, {
       {
         test: isomorphicPlugin.regularExpression('images'),
         loader: 'url-loader?limit=10240'
-      },
-      styleLoaderConfig
+      }
     ]
   },
   plugins: [
@@ -79,4 +78,4 @@ module.exports = url => Object.assign({}, base, {
     // isomorphic tools magic (stats collection etc)
     isomorphicPlugin.development()
   ]
-})
+}))

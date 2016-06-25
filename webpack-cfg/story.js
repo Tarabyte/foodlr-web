@@ -1,12 +1,10 @@
 /**
  * Custom webpack config for story book
  */
-const styleLoaderConfig = require('./commons/dev-style-loader-config')
+const styleLoader = require('./commons/dev-style-loader-config')
 
-module.exports = {
+module.exports = styleLoader({
   module: {
-    loaders: [
-      styleLoaderConfig
-    ]
+    loaders: []
   }
-}
+})
