@@ -8,24 +8,25 @@
     "lint": "eslint -c .eslintrc src",
     "server-dev": "better-npm-run server-dev",
     "watch-client": "better-npm-run watch-client",
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run server-dev\""
+    "open": "better-npm-run open",
+    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run server-dev\" \"npm run open\""
   },
   "betterScripts": {
     "server-dev": {
       "command": "node ./bin/server",
       "env": {
-        "NODE_PATH": "./src",
-        "NODE_ENV": "development",
-        "PORT": 8666
+        "NODE_ENV": "development"
       }
     },
     "watch-client": {
       "command": "node ./bin/dev-server",
       "env": {
-        "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./src",
-        "PORT": 8666
+        "UV_THREADPOOL_SIZE": 100
       }
+    },
+    "open": {
+      "command": "node ./bin/dev-open",
+      "env": {}
     }
   },
   "repository": {
@@ -57,11 +58,13 @@
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "http-proxy": "^1.13.3",
+    "isomorphic-fetch": "^2.2.1",
     "javascript-serialize": "^1.6.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-helmet": "^3.1.0",
     "react-redux": "^4.4.5",
+    "react-redux-universal-resolver": "^0.1.1",
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
