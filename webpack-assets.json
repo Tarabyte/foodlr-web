@@ -1,7 +1,7 @@
 {
   "javascript": {
-    "main": "http://localhost:8667/dist/main-e6698f1f4836d711fbc4.js",
-    "vendor": "http://localhost:8667/dist/vendor-e6698f1f4836d711fbc4.js"
+    "main": "http://localhost:8667/dist/main-7925e63df8a9ec6f4352.js",
+    "vendor": "http://localhost:8667/dist/vendor-7925e63df8a9ec6f4352.js"
   },
   "styles": {},
   "assets": {
@@ -9,7 +9,9 @@
     "./src/containers/App/App.css": {
       "app-container": "app-container___UEQBv",
       "appContainer": "app-container___UEQBv",
-      "_style": ".app-container___UEQBv {\r\n  color: red;\r\n}"
+      "app-logo": "app-logo___2UWNt",
+      "appLogo": "app-logo___2UWNt",
+      "_style": ".app-container___UEQBv {\r\n  color: violet;\r\n}\r\n\r\n.app-logo___2UWNt {\r\n  max-width: 100%;\r\n}"
     }
   }
 }

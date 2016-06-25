@@ -3,12 +3,14 @@ import { Route, IndexRoute } from 'react-router'
 import {
   App,
   NotFound,
-  Home
+  Home,
+  Post
 } from './containers'
 
 export default () => (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
+    <Route path="posts/:id" component={Post} />
 
     {/* 404 capture */}
     <Route path="*" component={NotFound} />

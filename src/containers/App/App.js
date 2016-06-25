@@ -10,7 +10,7 @@ const App = props => {
   return (
     <div className={styles.appContainer}>
       <header>
-        <img src={logo} alt="FoodZzilla logo" />
+        <img src={logo} alt="FoodZzilla logo" className={styles.appLogo} />
       </header>
       <main>
         {children}

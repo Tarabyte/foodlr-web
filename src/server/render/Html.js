@@ -11,7 +11,6 @@ const Html = props => {
   const saveStateGlobally =
     `window.${config.state} = ${store ? serialize(store.getState()) : '{}'}`
 
-
   return (
     <html lang={config.lang}>
       <head>

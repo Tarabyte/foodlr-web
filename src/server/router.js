@@ -7,6 +7,7 @@ import render from './render'
 import createStore from '../redux/create'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
+import { resolveOnServer } from 'react-redux-universal-resolver'
 
 /**
  * Server side rendering and routing middleware
@@ -30,15 +31,19 @@ export default config => assetsProvider => (req, res) => {
     } else if (redirect) {
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
-      const component = (
-        <Provider store={store}>
-          <RouterContext {...props} />
-        </Provider>
-      )
+      resolveOnServer(props.components, store.getState(), props, store.dispatch)
+        .then(() => {
+          console.log(store.getState())
+          const component = (
+            <Provider store={store}>
+              <RouterContext {...props} />
+            </Provider>
+          )
 
-      res
-        .status(200)
-        .send(render({ config, component, store, assets: assetsProvider.assets() }))
+          res
+            .status(200)
+            .send(render({ config, component, store, assets: assetsProvider.assets() }))
+        })
     } else {
       // should never get here
       console.error(`Totally freaking unexpected route ${location}`)
