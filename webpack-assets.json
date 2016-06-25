@@ -1,14 +1,14 @@
 {
   "javascript": {
-    "main": "http://localhost:8667/dist/main-e6118aeb8a929b7c0e12.js",
-    "vendor": "http://localhost:8667/dist/vendor-e6118aeb8a929b7c0e12.js"
+    "main": "http://localhost:8667/dist/main-e1e67e2701df0a895ba2.js",
+    "vendor": "http://localhost:8667/dist/vendor-e1e67e2701df0a895ba2.js"
   },
   "styles": {},
   "assets": {
     "./src/containers/App/logo.png": "http://localhost:8667/dist/a3decd6dfa4f9e11638ad30e9b80a8c6.png",
     "./src/containers/NotFound/NotFound.css": {
       "title": "title___1NOn2",
-      "_style": ".title___1NOn2 {\r\n  font-size: 40px;\r\n}"
+      "_style": ".title___1NOn2 {\r\n  font-size: 40px;\r\n  color: red;\r\n}"
     },
     "./src/containers/App/App.css": {
       "app-container": "app-container___UEQBv",
