@@ -3,5 +3,9 @@
  */
 import React from 'react'
 
-export default () => <div>Адрес не найден!</div>
+export default () => {
+  // eslint-disable-next-line global-require
+  const styles = require('./NotFound.css')
+  return <div className={styles.title}>Адрес не найден!</div>
+}
 

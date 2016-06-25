@@ -10,6 +10,8 @@ const isomorphicToolsConfig = require('./isomorphic-tools')
 
 const isomorphicPlugin = new WebpackIsomorphicToolsPlugin(isomorphicToolsConfig)
 
+const styleLoaderConfig = require('./commons/dev-style-loader-config')
+
 module.exports = url => Object.assign({}, base, {
   debug: true,
   devtool: 'inline-source-map',
@@ -52,24 +54,7 @@ module.exports = url => Object.assign({}, base, {
         test: isomorphicPlugin.regularExpression('images'),
         loader: 'url-loader?limit=10240'
       },
-      {
-        test: /\.css$/,
-        /**
-         * * camelCase to conver app-container into appContainer when used in js
-         * * localIdentName will be something like app-container___hashpart
-         * * importLoaders specify which loader should be used to handle @import statements
-         *   PostCss for now. Check docs for more details https://github.com/webpack/css-loader#importing-and-chained-loaders
-         *
-         * @todo Ditch css loader, use postcss-modules instead
-         */
-        loader: 'style!css?modules&importLoaders=1&sourceMap&localIdentName=[local]___[hash:base64:5]&camelCase!postcss',
-        postcss: () => ([
-          // eslint-disable-next-line global-require
-          require('autoprefixer')({
-            browsers: ['last 2 versions']
-          })
-        ])
-      }
+      styleLoaderConfig
     ]
   },
   plugins: [
