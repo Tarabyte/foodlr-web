@@ -1,0 +1,18 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "FoodZzilla"
+  },
+  {
+    "id": "app.logo",
+    "defaultMessage": "FoodZzilla logo"
+  },
+  {
+    "id": "app.description",
+    "defaultMessage": "FoodZzilla Web Application"
+  },
+  {
+    "id": "app.keywords",
+    "defaultMessage": "FoodZzilla, recipe, cousine"
+  }
+]

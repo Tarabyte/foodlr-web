@@ -1,4 +1,8 @@
 {
+  "app.description": "FoodZzilla Web Application",
+  "app.keywords": "FoodZzilla, recipe, cousine",
+  "app.logo": "FoodZzilla logo",
+  "app.title": "FoodZzilla",
   "home.no_where": "Проверить 404",
   "home.title": "Домашняя страница"
 }
