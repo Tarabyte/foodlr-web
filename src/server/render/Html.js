@@ -4,12 +4,15 @@ import serialize from 'javascript-serialize';
 import Helmet from 'react-helmet';
 
 const Html = props => {
-  const { assets, component, config, store } = props
+  const { assets, component, config, store, messages } = props
   const head = Helmet.rewind()
 
   const innerHtml = component ? renderToString(component) : ''
   const saveStateGlobally =
     `window.${config.state} = ${store ? serialize(store.getState()) : '{}'}`
+  const saveMessagesGlobally =
+    `window.${config.messages} = ${messages ? serialize(messages) : '{}'}`
+
 
   return (
     <html lang={config.lang}>
@@ -26,7 +29,14 @@ const Html = props => {
       </head>
       <body>
         <div id={config.contentId} dangerouslySetInnerHTML={{ __html: innerHtml }}></div>
-        <script id="initial-state" dangerouslySetInnerHTML={{ __html: saveStateGlobally }}></script>
+        <script
+          id={config.state.toLowerCase()}
+          dangerouslySetInnerHTML={{ __html: saveStateGlobally }}
+        ></script>
+        <script
+          id={config.messages.toLowerCase()}
+          dangerouslySetInnerHTML={{ __html: saveMessagesGlobally }}
+        ></script>
         <script src={assets.javascript.vendor}></script>
         <script src={assets.javascript.main}></script>
       </body>
@@ -40,7 +50,8 @@ Html.propTypes = {
   config: object.isRequired,
   assets: object.isRequired,
   component: node,
-  store: object
+  store: object,
+  messages: object
 }
 
 export default Html

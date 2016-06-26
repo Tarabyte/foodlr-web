@@ -8,6 +8,7 @@ import createStore from '../redux/create'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { resolveOnServer } from 'react-redux-universal-resolver'
+import localize from '../intl'
 
 /**
  * Server side rendering and routing middleware
@@ -18,6 +19,9 @@ export default config => assetsProvider => (req, res) => {
   const store = createStore(memoryHistory, {})
   const history = syncHistoryWithStore(memoryHistory, store)
   const routes = getRoutes()
+  const locale = config.lang
+  // eslint-disable-next-line global-require
+  const messages = require(`../messages/locales/${locale}.json`)
 
   // refresh assets provider in dev mode
   if (__DEVELOPMENT__) {
@@ -33,16 +37,15 @@ export default config => assetsProvider => (req, res) => {
     } else if (props) {
       resolveOnServer(props.components, store.getState(), props, store.dispatch)
         .then(() => {
-          console.log(store.getState())
-          const component = (
+          const component = localize(locale, messages, (
             <Provider store={store}>
               <RouterContext {...props} />
             </Provider>
-          )
+          ))
 
           res
             .status(200)
-            .send(render({ config, component, store, assets: assetsProvider.assets() }))
+            .send(render({ config, component, store, assets: assetsProvider.assets(), messages }))
         })
     } else {
       // should never get here

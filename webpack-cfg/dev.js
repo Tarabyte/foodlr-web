@@ -50,6 +50,7 @@ module.exports = url => Object.assign({}, base, styleLoaderConfig({
         include: srcPath,
         loader: 'babel'
       },
+      { test: /\.json$/, loader: 'json-loader' },
       {
         test: isomorphicPlugin.regularExpression('images'),
         loader: 'url-loader?limit=10240'

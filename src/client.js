@@ -6,18 +6,21 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import config from './config'
 import create from './redux/create'
 import getRoutes from './routes'
+import localize from './intl'
 
 const initialState = window[config.state]
 const store = create(browserHistory, initialState)
 const history = syncHistoryWithStore(browserHistory, store)
 const mountingPoint = document.getElementById(config.contentId)
+const messages = window[config.messages]
+const locale = document.documentElement.getAttribute('lang')
 
-const component = (
+const component = localize(locale, messages, (
   <Provider store={store}>
     <Router history={history} >
       {getRoutes()}
     </Router>
-  </Provider>
+  </Provider>)
 )
 
 render(component, mountingPoint)
@@ -30,13 +33,13 @@ if (__DEVELOPMENT__) {
       // eslint-disable-next-line global-require
       const nextRoutes = require('./routes').default
 
-      const nextComponent = (
+      const nextComponent = localize(locale, messages, (
         <Provider store={store}>
           <Router history={history}>
             {nextRoutes()}
           </Router>
         </Provider>
-      )
+      ))
       // router doesn't allow to replace routes per se
       // we need to unmount it first
       unmountComponentAtNode(mountingPoint)

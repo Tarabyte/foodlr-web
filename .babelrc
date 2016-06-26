@@ -1,12 +1,17 @@
 {
   "presets": [
-    "react",
-    "es2015"
+    "es2015",
+    "react"
   ],
   "plugins": [
+    [
+      "react-intl", {
+        "messagesDir": "./src/messages/extracted/"
+      }
+    ],
     "transform-export-extensions",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-runtime"
+    "transform-runtime"    
   ]
 }
