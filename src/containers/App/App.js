@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react'
 import messages from './App.messages'
 import Helmet from 'react-helmet'
 import { injectIntl, intlShape } from 'react-intl'
+import { Footer, Header } from '../../components'
 
 
 const App = props => {
   const { children, intl: { formatMessage } } = props
-  const logo = require('./logo.png') // eslint-disable-line global-require
   const styles = require('./App.css')// eslint-disable-line global-require
 
   return (
@@ -18,12 +18,11 @@ const App = props => {
           { name: 'keywords', content: formatMessage(messages.keywords) }
         ]}
       />
-      <header>
-        <img src={logo} alt={formatMessage(messages.logo)} className={styles.appLogo} />
-      </header>
+      <Header />
       <main>
         {children}
       </main>
+      <Footer />
     </div>
   )
 }

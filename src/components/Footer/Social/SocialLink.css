@@ -1,0 +1,16 @@
+:root {
+  --iconSize: 32px;
+}
+
+.link {
+  display: inline-block;
+  width: calc(var(--iconSize) * 2);
+  height: calc(var(--iconSize) * 2);
+}
+
+.icon {
+  width: var(--iconSize);
+  height: var(--iconSize);
+  transform: translate(calc(var(--iconSize) / 2), calc(var(--iconSize) / 2));
+}
+

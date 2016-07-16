@@ -1,0 +1,15 @@
+.links {
+  lost-flex-container: row;
+
+  &-nav {
+    lost-column: 2/3 0 flex;
+  }
+
+  &-social {
+    lost-column: 1/3 0 flex;
+  }
+}
+
+.copyright {
+  text-align: center;
+}

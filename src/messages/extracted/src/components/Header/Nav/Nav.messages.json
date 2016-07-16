@@ -1,0 +1,18 @@
+[
+  {
+    "id": "header.nav.recipes",
+    "defaultMessage": "Recipes"
+  },
+  {
+    "id": "header.nav.cousines",
+    "defaultMessage": "Cousines"
+  },
+  {
+    "id": "header.nav.products",
+    "defaultMessage": "Products"
+  },
+  {
+    "id": "header.nav.articles",
+    "defaultMessage": "Articles"
+  }
+]

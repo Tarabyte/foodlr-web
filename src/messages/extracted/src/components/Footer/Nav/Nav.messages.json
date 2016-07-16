@@ -1,0 +1,30 @@
+[
+  {
+    "id": "footer.nav.home",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "footer.nav.recipes",
+    "defaultMessage": "Recipes"
+  },
+  {
+    "id": "footer.nav.cousines",
+    "defaultMessage": "Cousines"
+  },
+  {
+    "id": "footer.nav.products",
+    "defaultMessage": "Products"
+  },
+  {
+    "id": "footer.nav.articles",
+    "defaultMessage": "Articles"
+  },
+  {
+    "id": "footer.nav.faq",
+    "defaultMessage": "FAQ"
+  },
+  {
+    "id": "footer.nav.terms",
+    "defaultMessage": "Terms of Usage"
+  }
+]

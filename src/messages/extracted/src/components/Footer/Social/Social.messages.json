@@ -1,0 +1,14 @@
+[
+  {
+    "id": "footer.social.facebook",
+    "defaultMessage": "Facebook"
+  },
+  {
+    "id": "footer.social.vkontakte",
+    "defaultMessage": "VKontakte"
+  },
+  {
+    "id": "footer.social.odnoklassinki",
+    "defaultMessage": "Odnoklassinki"
+  }
+]

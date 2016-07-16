@@ -5,6 +5,8 @@ const styleLoader = require('./commons/dev-style-loader-config')
 
 module.exports = styleLoader({
   module: {
-    loaders: []
+    loaders: [
+      { test: /\.json$/, loader: 'json-loader' }
+    ]
   }
 })
