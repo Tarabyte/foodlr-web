@@ -11,6 +11,7 @@ const isomorphicToolsConfig = require('./isomorphic-tools')
 const isomorphicPlugin = new WebpackIsomorphicToolsPlugin(isomorphicToolsConfig)
 
 const styleLoaderConfig = require('./commons/dev-style-loader-config')
+const es6NodeModulesLoader = require('./commons/es6-node-modules').loader
 
 module.exports = url => Object.assign({}, base, styleLoaderConfig({
   debug: false,
@@ -50,6 +51,7 @@ module.exports = url => Object.assign({}, base, styleLoaderConfig({
         include: srcPath,
         loader: 'babel'
       },
+      es6NodeModulesLoader,
       { test: /\.json$/, loader: 'json-loader' },
       {
         test: isomorphicPlugin.regularExpression('images'),

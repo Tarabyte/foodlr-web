@@ -5,11 +5,3 @@
   color: var(--error-color);
   font-family: "Lora";
 }
-
-.grid {
-  lost-flex-container: row;
-}
-
-.grid-item {
-  lost-column: 1/2 flex;
-}

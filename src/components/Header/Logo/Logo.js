@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, PropTypes } from 'react-router'
+import React, { PropTypes } from 'react'
+import { Link, PropTypes as RouterPropTypes } from 'react-router'
 
 const Logo = ({ home }) => {
   const styles = require('./Logo.css') // eslint-disable-line global-require
@@ -21,7 +21,10 @@ const Logo = ({ home }) => {
 
 
 Logo.propTypes = {
-  home: PropTypes.locationShape
+  home: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape(RouterPropTypes.locationShape)
+  ])
 }
 
 export default Logo

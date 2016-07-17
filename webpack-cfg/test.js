@@ -1,5 +1,6 @@
 const path = require('path');
 const src = path.join(__dirname, '..', 'src');
+const es6NodeModulesLoader = require('./commons/es6-node-modules').loader
 /**
  * Webpack test config
  */
@@ -32,7 +33,8 @@ module.exports = {
         include: [
           src
         ]
-      }
+      },
+      es6NodeModulesLoader
     ]
   },
   plugins: []
