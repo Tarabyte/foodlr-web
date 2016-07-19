@@ -14,7 +14,7 @@ export default (history, initial) => {
 
   if (__DEVELOPMENT__ && module.hot) {
     module.hot.accept('./ducks', () => {
-      store.replaceReducer(require('./ducks')) // eslint-disable-line global-require
+      store.replaceReducer(require('./ducks').default) // eslint-disable-line global-require
     })
   }
 
