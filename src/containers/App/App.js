@@ -3,10 +3,15 @@ import messages from './App.messages'
 import Helmet from 'react-helmet'
 import { injectIntl, intlShape } from 'react-intl'
 import { Footer, Header } from '../../components'
-
+import { resolver } from 'react-redux-universal-resolver'
+import { fetch } from '../../service/api'
 
 const App = props => {
-  const { children, intl: { formatMessage } } = props
+  const {
+    children,
+    intl: { formatMessage },
+    categories
+  } = props
   const styles = require('./App.css')// eslint-disable-line global-require
 
   return (
@@ -18,7 +23,7 @@ const App = props => {
           { name: 'keywords', content: formatMessage(messages.keywords) }
         ]}
       />
-      <Header />
+      <Header categories={categories} />
       <main>
         {children}
       </main>
@@ -29,7 +34,12 @@ const App = props => {
 
 App.propTypes = {
   children: PropTypes.node,
-  intl: intlShape
+  intl: intlShape,
+  categories: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default injectIntl(App)
+const empty = () => ({})
+
+export default resolver({
+  categories: () => fetch('categories').then(x => x.json())
+}, empty, empty)(injectIntl(App))

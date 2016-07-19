@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const src = path.join(__dirname, '..', 'src');
 const es6NodeModulesLoader = require('./commons/es6-node-modules').loader
 /**
@@ -37,5 +38,12 @@ module.exports = {
       es6NodeModulesLoader
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      __DEVELOPMENT__: true,
+      __PRODUCTION__: false,
+      __SERVER__: false,
+      __CLIENT__: true
+    })
+  ]
 }

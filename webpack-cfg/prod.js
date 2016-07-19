@@ -11,7 +11,9 @@ module.exports = Object.assign({}, base, {
   plugins: [
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
-      __PRODUCTION__: true
+      __PRODUCTION__: true,
+      __SERVER__: false,
+      __CLIENT__: true
     })
   ]
 })

@@ -5,6 +5,7 @@ import path from 'path'
 import favicon from 'serve-favicon'
 import compression from 'compression'
 import config from './server/config'
+import apiConfig from './service/api/config'
 import appConfig from './config'
 import makeApiProxy from './server/api'
 import router from './server/router'
@@ -27,7 +28,7 @@ module.exports = function run(assetsProvider) {
   app.use(Express.static(path.join(__dirname, '..', 'public')))
 
   // proxy api requests
-  app.use(`/${config.api.prefix}`, makeApiProxy(config.api))
+  app.use(apiConfig.localAPIPath, makeApiProxy(apiConfig))
 
   // server side routing
   app.use(router(appConfig)(assetsProvider))
@@ -38,7 +39,7 @@ module.exports = function run(assetsProvider) {
     if (err) {
       console.error(err)
     } else {
-      console.log(`Application is up and running on ${config.host}:${config.port}`);
+      console.log(`Application is up and running on ${config.publicPath}`);
     }
   })
 }

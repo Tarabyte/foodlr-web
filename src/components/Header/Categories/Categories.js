@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import categoryShape from './category.shape'
 
 const Categories = ({ categories }) => {
   const styles = require('./Categories.css') // eslint-disable-line global-require
@@ -21,13 +22,7 @@ const Categories = ({ categories }) => {
 }
 
 Categories.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      caption: PropTypes.string,
-      description: PropTypes.string
-    })
-  ).isRequired
+  categories: PropTypes.arrayOf(categoryShape).isRequired
 }
 
 export default Categories

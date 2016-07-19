@@ -24,6 +24,9 @@
     "import/parser": "babel-eslint"
   },
   "globals": {
-    "__DEVELOPMENT__": true
+    "__DEVELOPMENT__": true,
+    "__PRODUCTION__": true,
+    "__SERVER__": true,
+    "__CLIENT__": true
   }
 }

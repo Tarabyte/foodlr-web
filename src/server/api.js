@@ -2,14 +2,11 @@ import { createProxyServer } from 'http-proxy'
 
 /**
  * Creates proxy middleware based on configuration options
- * @param  {String} options.host    API remote host
- * @param  {Number} options.port    API server port
- * @param  {String} options.postfix API server prefix
+ * @param  {String} options.absoluteAPIPath    API remote url
  * @return {Function<Req, Res, void>} Middleware function
  */
-export default ({ host, port, postfix }) => {
-  const targetUrl = `http://${host}:${port}/${postfix}`
-  const proxy = createProxyServer({ targetUrl })
+export default ({ absoluteAPIPath }) => {
+  const proxy = createProxyServer({ targetUrl: absoluteAPIPath })
 
   // process proxy server errors
   proxy.on('error', (err, req, res) => {
@@ -31,6 +28,6 @@ export default ({ host, port, postfix }) => {
   })
 
   return (req, res) => proxy.web(req, res, {
-    target: targetUrl
+    target: absoluteAPIPath
   })
 }

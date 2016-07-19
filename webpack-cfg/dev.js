@@ -75,7 +75,9 @@ module.exports = url => Object.assign({}, base, styleLoaderConfig({
     // define constants
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
-      __PRODUCTION__: false
+      __PRODUCTION__: false,
+      __SERVER__: false,
+      __CLIENT__: true
     }),
 
     // isomorphic tools magic (stats collection etc)
