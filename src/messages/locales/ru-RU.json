@@ -1,4 +1,7 @@
 {
+  "FAQ.List.empty": "Нет вопросов",
+  "FAQ.header": "Частые вопросы",
+  "FAQ.title": "ЧаВо",
   "app.description": "Пошаговые рецепты, кухни мира.",
   "app.keywords": "FoodZzilla, пошаговые рецепты, кухни мира",
   "app.logo": "Логотип FoodZzilla",
