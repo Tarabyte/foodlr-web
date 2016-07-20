@@ -1,10 +1,6 @@
 [
   {
     "id": "home.title",
-    "defaultMessage": "Home Page"
-  },
-  {
-    "id": "home.no_where",
-    "defaultMessage": "Check 404"
+    "defaultMessage": "Recipe with Photo"
   }
 ]

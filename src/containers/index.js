@@ -1,4 +1,4 @@
-export NotFound from './NotFound/NotFound'
-export Home from './Home/Home'
 export App from './App/App'
-export Post from './Post/Post'
+export Home from './Home/Home'
+export Terms from './Terms/Terms'
+export NotFound from './NotFound/NotFound'

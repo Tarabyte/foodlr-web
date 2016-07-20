@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { injectIntl, intlShape } from 'react-intl'
 import { Footer, Header } from '../../components'
 import { resolver } from 'react-redux-universal-resolver'
-import { fetch } from '../../service/api'
+import { json } from '../../service/api'
 
 const App = props => {
   const {
@@ -41,5 +41,5 @@ App.propTypes = {
 const empty = () => ({})
 
 export default resolver({
-  categories: () => fetch('categories').then(x => x.json())
+  categories: () => json('categories')
 }, empty, empty)(injectIntl(App))

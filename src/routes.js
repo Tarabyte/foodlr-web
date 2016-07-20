@@ -4,13 +4,13 @@ import {
   App,
   NotFound,
   Home,
-  Post
+  Terms
 } from './containers'
 
 export default () => (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
-    <Route path="posts/:id" component={Post} />
+    <Route path="terms" component={Terms} />
 
     {/* 404 capture */}
     <Route path="*" component={NotFound} />

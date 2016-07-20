@@ -1,0 +1,14 @@
+[
+  {
+    "id": "terms.title",
+    "defaultMessage": "Terms of Service"
+  },
+  {
+    "id": "terms.header",
+    "defaultMessage": "Terms and Conditions"
+  },
+  {
+    "id": "terms.terms",
+    "defaultMessage": "<h2>End User Agreement</h2>"
+  }
+]
