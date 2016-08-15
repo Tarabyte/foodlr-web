@@ -1,5 +1,6 @@
 export App from './App/App'
 export Home from './Home/Home'
+export Products from './Products/Products'
 export Terms from './Terms/Terms'
 export FAQ from './FAQ/FAQ'
 export NotFound from './NotFound/NotFound'

@@ -6,13 +6,13 @@ import { Footer, Header } from '../../components'
 import { resolver } from 'react-redux-universal-resolver'
 import { json } from '../../service/api'
 
+const styles = require('./App.css')// eslint-disable-line global-require
 const App = props => {
   const {
     children,
     intl: { formatMessage },
     categories
   } = props
-  const styles = require('./App.css')// eslint-disable-line global-require
 
   return (
     <div className={styles.appContainer}>

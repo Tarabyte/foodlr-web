@@ -45,7 +45,20 @@ export default config => assetsProvider => (req, res) => {
 
           res
             .status(200)
-            .send(render({ config, component, store, assets: assetsProvider.assets(), messages }))
+            .send(render({
+              config,
+              component,
+              store,
+              assets: assetsProvider.assets(),
+              messages
+            }))
+        })
+        .catch(reason => {
+          console.error(`Unable to resolve async properties on server ${location} due to `, reason)
+
+          res
+            .status(503)
+            .send('Service is temporary unavailable')
         })
     } else {
       // should never get here

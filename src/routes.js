@@ -5,12 +5,16 @@ import {
   NotFound,
   Home,
   Terms,
-  FAQ
+  FAQ,
+  Products
 } from './containers'
 
 export default () => (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
+    <Route path="products">
+      <IndexRoute component={Products} />
+    </Route>
     <Route path="terms" component={Terms} />
     <Route path="faq" component={FAQ} />
 

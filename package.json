@@ -11,9 +11,10 @@
     "watch-client": "better-npm-run watch-client",
     "open": "better-npm-run open",
     "tdd": "karma start --autoWatch=true --singleRun=false",
-    "dev": "concurrent \"npm run watch-client\" \"npm run server-dev\" \"npm run open\" \"npm run tdd\"",
+    "dev": "concurrent \"npm run ping-api\" \"npm run watch-client\" \"npm run server-dev\" \"npm run open\" \"npm run tdd\"",
     "storybook": "start-storybook -p 9002",
-    "translations": "better-npm-run translations"
+    "translations": "better-npm-run translations",
+    "ping-api": "better-npm-run ping-api"
   },
   "betterScripts": {
     "server-dev": {
@@ -34,6 +35,10 @@
     },
     "translations": {
       "command": "node ./bin/dev-translations",
+      "env": {}
+    },
+    "ping-api": {
+      "command": "node ./bin/dev-ping-api",
       "env": {}
     }
   },
@@ -73,7 +78,7 @@
     "react-helmet": "^3.1.0",
     "react-icons": "^2.2.1",
     "react-redux": "^4.4.5",
-    "react-redux-universal-resolver": "^0.2.1",
+    "react-redux-universal-resolver": "^0.3.0",
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
