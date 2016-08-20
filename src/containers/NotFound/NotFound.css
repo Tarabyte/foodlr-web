@@ -1,7 +1,7 @@
 @import '../../theme/theme.css';
 
 .title {
-  font-size: 40px;
-  color: var(--error-color);
-  font-family: "Lora";
+  font-size: 50px;
+  color: var(--red);
+  font-family: var(--exotic-font);
 }

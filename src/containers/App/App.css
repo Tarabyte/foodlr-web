@@ -1,8 +1,21 @@
-.app-container {
-  color: violet;
-  font-family: "Alice";
+:root {
+  --app-header-height: 200px;
 }
 
-.app-logo {
-  max-width: 100%;
+.app-main {
+  margin: var(--app-header-height) auto 0 auto;
+  min-width: 768px;
+  max-width: 1280px;
+}
+
+.app-header {
+  position: fixed;
+  height: var(--app-header-height);
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.app-footer {
+  width: 100%;
 }

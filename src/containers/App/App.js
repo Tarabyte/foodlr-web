@@ -23,11 +23,15 @@ const App = props => {
           { name: 'keywords', content: formatMessage(messages.keywords) }
         ]}
       />
-      <Header categories={categories} />
-      <main>
+      <div className={styles.appHeader}>
+        <Header categories={categories} />
+      </div>
+      <main className={styles.appMain}>
         {children}
       </main>
-      <Footer />
+      <div className={styles.appFooter}>
+        <Footer />
+      </div>
     </div>
   )
 }

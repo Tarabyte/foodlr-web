@@ -30,7 +30,10 @@ module.exports = config => {
     cssnext,
     lost,
     normalize,
-    font,
+    // this doesn't work with unicode-range etc
+    font({
+      formats: 'woff2'
+    }),
     reporter
   ]
 

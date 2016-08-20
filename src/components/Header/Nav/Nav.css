@@ -1,9 +1,51 @@
+@import '../../../theme/theme.css';
+
+:root {
+  --height: 2em;
+}
+
 .links {
   list-style-type: none;
+  height: var(--height);
   margin: 0;
   padding: 0;
+  display: inline-block;
+  width: calc(100% - 20em);
 
   &-item {
     display: inline-block;
+    padding: 0 calc(var(--height) / 2);
+
+    &-link {
+      text-decoration: none;
+      color: var(--dark-grey);
+      font-family: var(--default-font);
+      font-size: 18px;
+      transition: color var(--default-duration) var(--default-timing-function);
+
+      &:hover {
+        color: var(--grey);
+      }
+    }
+  }
+}
+
+.random {
+  height: var(--height);
+  border-radius: 5px;
+  padding: 0 calc(var(--height) / 2);
+  float: right;
+  background: var(--green);
+  transition: background-color var(--default-duration) var(--default-timing-function);
+
+  &-text {
+    font-family: var(--exotic-font);
+    font-size: 20px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: var(--red);
   }
 }

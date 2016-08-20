@@ -1,4 +1,9 @@
-.container {
-  color: red;
+@import '../../theme/theme.css';
+
+.logo {
+  width: 600px;
 }
 
+.navigation {
+  margin-bottom: 10px;
+}

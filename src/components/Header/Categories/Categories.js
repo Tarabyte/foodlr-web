@@ -11,7 +11,12 @@ const Categories = ({ categories }) => {
         {
           categories.map(category => (
             <li className={styles.category} key={category.id} title={category.description}>
-              <Link to={`/category/${category.id}`}>{category.caption}</Link>
+              <Link
+                to={`/category/${category.id}`}
+                className={styles.categoryLink}
+              >
+                {category.caption}
+              </Link>
             </li>
           ))
         }

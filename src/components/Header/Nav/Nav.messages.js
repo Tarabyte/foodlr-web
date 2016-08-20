@@ -1,20 +1,32 @@
 import { defineMessages } from 'react-intl'
 
 export default defineMessages({
+  home: {
+    id: 'header.nav.home',
+    defaultMessage: 'Home'
+  },
+  worldCuisines: {
+    id: 'header.nav.worldCuisines',
+    defaultMessage: 'World Cuisines'
+  },
   recipes: {
     id: 'header.nav.recipes',
     defaultMessage: 'Recipes'
-  },
-  cousines: {
-    id: 'header.nav.cousines',
-    defaultMessage: 'Cousines'
   },
   products: {
     id: 'header.nav.products',
     defaultMessage: 'Products'
   },
-  articles: {
-    id: 'header.nav.articles',
-    defaultMessage: 'Articles'
+  school: {
+    id: 'header.nav.school',
+    defaultMessage: 'Cook School'
   },
+  travelers: {
+    id: 'header.nav.travelers',
+    defaultMessage: 'Travelers Guide'
+  },
+  random: {
+    id: 'header.nav.random',
+    defaultMessage: 'Random Recipe'
+  }
 })

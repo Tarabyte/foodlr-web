@@ -9,10 +9,12 @@ const Nav = () => {
   const messages = require('./Nav.messages').default
 
   const links = [
+    { to: '/', message: messages.home },
+    { to: '/rubric/world', message: messages.worldCuisines },
     { to: '/recipes', message: messages.recipes },
     { to: '/products', message: messages.products },
-    { to: '/cousines', message: messages.cousines },
-    { to: '/articles', message: messages.articles }
+    { to: '/rubric/school', message: messages.school },
+    { to: '/rubric/travelers', message: messages.travelers }
   ]
 
   return (
@@ -21,13 +23,18 @@ const Nav = () => {
         {
           links.map(({ to, message }) => (
             <li className={styles.linksItem} key={message.id}>
-              <Link to={to}>
+              <Link to={to} className={styles.linksItemLink}>
                 <FormattedMessage {...message} />
               </Link>
             </li>
           ))
         }
       </ul>
+      <span className={styles.random}>
+        <Link to="/recipes/random" className={styles.randomText}>
+          <FormattedMessage {...messages.random} />
+        </Link>
+      </span>
     </nav>
   )
 }
