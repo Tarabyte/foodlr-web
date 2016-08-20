@@ -1,5 +1,15 @@
 :root {
-  --default-color: navy;
-  --error-color: green;
+  --green: #68B04D;
+  --red: #CF533A;
+  --dark-red: #CF381D;
+  --blue: #5B6FAB;
+  --orange: #D47E1C;
+  --grey: #ACA9A9;  
+  --light-grey: rgba(227, 227, 227, 0.79);
+  --dark-grey: #5E5D5D;
+  --darker-grey: #2C2C2B;
+  --default-font: "Roboto";
+  --exotic-font: "Lobster";
+
 }
 
