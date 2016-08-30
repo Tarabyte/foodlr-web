@@ -26,5 +26,9 @@
   {
     "id": "header.nav.random",
     "defaultMessage": "Random Recipe"
+  },
+  {
+    "id": "header.nav.showMore",
+    "defaultMessage": "More"
   }
 ]

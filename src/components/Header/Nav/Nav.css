@@ -1,26 +1,58 @@
 @import '../../../theme/theme.css';
-
 :root {
   --height: 2em;
+  --link-font-size: 18px;
+  --item-border-width: 1px;
 }
 
 .links {
-  list-style-type: none;
   height: var(--height);
-  margin: 0;
-  padding: 0;
   display: inline-block;
   width: calc(100% - 20em);
+
+  &-visible,
+  &-more {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    line-height: 1em;
+  }
+
+  &-visible {
+    white-space: nowrap;
+  }
+
+  &-more {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 1em);
+    border: 1px solid var(--dark-grey);
+    border-top: 2px solid var(--black);
+    margin-top: calc(var(--height) - var(--item-border-width));
+  }
 
   &-item {
     display: inline-block;
     padding: 0 calc(var(--height) / 2);
+    border: var(--item-border-width) solid transparent;
+
+    &-more {
+      display: block;
+      padding-top: 1em;
+      text-align: right;
+
+      &:last-child {
+        padding-bottom: 1em;
+      }
+    }
 
     &-link {
       text-decoration: none;
       color: var(--dark-grey);
       font-family: var(--default-font);
-      font-size: 18px;
+      font-size: var(--link-font-size);
       transition: color var(--default-duration) var(--default-timing-function);
 
       &:hover {
@@ -47,5 +79,35 @@
 
   &:hover {
     background: var(--red);
+  }
+}
+
+.show-more {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  border: var(--item-border-width) solid var(--dark-grey);
+  color: var(--dark-grey);
+  cursor: pointer;
+  font-size: var(--link-font-size);
+  transition: all var(--default-duration) var(--default-timing-function);
+  position: relative;
+
+  &:hover {
+    border-color: var(--grey);
+    color: var(--grey);
+  }
+
+  &.shown&::after {
+    content: '';
+    position: relative;
+    font-size: 0;
+    top: 0.5rem;
+    left: calc(-1rem - var(--item-border-width));
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid black;
+
   }
 }

@@ -27,6 +27,7 @@
     "__DEVELOPMENT__": true,
     "__PRODUCTION__": true,
     "__SERVER__": true,
-    "__CLIENT__": true
+    "__CLIENT__": true,
+    "sinon": true
   }
 }

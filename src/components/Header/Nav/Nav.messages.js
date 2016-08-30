@@ -28,5 +28,9 @@ export default defineMessages({
   random: {
     id: 'header.nav.random',
     defaultMessage: 'Random Recipe'
+  },
+  showMore: {
+    id: 'header.nav.showMore',
+    defaultMessage: 'More'
   }
 })
