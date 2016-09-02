@@ -7,19 +7,11 @@
 
 .links {
   height: var(--height);
-  display: inline-block;
   width: calc(100% - 20em);
-
-  &-visible,
-  &-more {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    line-height: 1em;
-  }
+  display: inline-block;
 
   &-visible {
+    line-height: 1em;
     white-space: nowrap;
   }
 
@@ -27,10 +19,12 @@
     position: absolute;
     top: 0;
     right: -1em;
+    line-height: 1em;
+    background-color: var(--white);
     border: 1px solid var(--dark-grey);
     border-top: 2px solid var(--black);
-    margin-top: calc(var(--height) - var(--item-border-width));
-    padding-right: 1em;
+    margin: calc(var(--height) - 0.5rem + 2px) 0 0 0;
+    padding: 0 1em 0 0;
     display: flex;
     flex-direction: column;
   }
@@ -90,6 +84,8 @@
   width: 1em;
   height: 1em;
   padding: 0;
+  margin-left: 1em;
+  line-height: calc(1em - 2 * var(--item-border-width));
   border: var(--item-border-width) solid var(--dark-grey);
   color: var(--dark-grey);
   cursor: pointer;

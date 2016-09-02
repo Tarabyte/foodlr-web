@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import { Link } from 'react-router'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
@@ -7,6 +7,8 @@ import resizeDetector from '../../../client/node-dimensions/resize-monitor'
 import classnames from '../../../client/classnames'
 import hamburger from 'react-icons/fa/bars'
 import cross from 'react-icons/fa/close'
+import { connect } from 'react-redux'
+import { toggle } from '../../../redux/ducks/ui-state/header-nav'
 
 const width = getNodeDimension('width')
 
@@ -38,9 +40,11 @@ const split = (items, total, widthes) => {
   return [left, right]
 }
 
-class Nav extends Component {
+class Navigation extends Component {
   static propTypes = {
-    intl: intlShape
+    intl: intlShape,
+    showMore: PropTypes.bool.isRequired,
+    toggle: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -48,7 +52,6 @@ class Nav extends Component {
     this.state = {
       linksWidth: null,
       childrenWidth: [],
-      showMore: false,
       initialRendering: true
     }
 
@@ -77,19 +80,18 @@ class Nav extends Component {
   }
 
   closeIfOpened() {
-    if (this.state.showMore) {
+    if (this.props.showMore) {
       this.toggleShowMore()
     }
   }
 
   toggleShowMore() {
-    this.setState({
-      showMore: !this.state.showMore
-    }, () => setTimeout(() => {
-      const method = `${this.state.showMore ? 'add' : 'remove'}EventListener`
+    this.props.toggle()
+    setTimeout(() => {
+      const method = `${this.props.showMore ? 'add' : 'remove'}EventListener`
 
       window[method]('click', this.closeIfOpened)
-    }, 0))
+    }, 0)
   }
 
   updateLinksWidth() {
@@ -98,7 +100,8 @@ class Nav extends Component {
       linksContainerItems
     } = this
 
-    const { initialRendering, childrenWidth, showMore } = this.state
+    const { initialRendering, childrenWidth } = this.state
+    const { showMore } = this.props
     const containerWidth = width(linksContainer)
 
     if (initialRendering) {
@@ -137,16 +140,30 @@ class Nav extends Component {
     const {
       linksWidth,
       childrenWidth,
-      showMore,
       initialRendering
     } = this.state
 
     const {
-      intl: { formatMessage }
+      intl: { formatMessage },
+      showMore
     } = this.props
 
-    const renderLink = (itemClass, linkClass) => ({ to, message }) => (
-      <li className={itemClass} key={message.id}>
+    const visibleStyle = {
+      listStyleType: 'none',
+      margin: 0,
+      padding: 0,
+      display: 'inline-block',
+      fontSize: 18
+    }
+
+    const visibleItemStyle = {
+      display: 'inline-block',
+      padding: '0 0 0 1em'
+    }
+
+
+    const renderLink = (itemClass, linkClass, style) => ({ to, message }) => (
+      <li className={itemClass} key={message.id} style={style}>
         <Link to={to} className={linkClass}>
           <FormattedMessage {...message} />
         </Link>
@@ -154,6 +171,19 @@ class Nav extends Component {
     )
 
     const [visibleLinks, moreLinks] = split(links, linksWidth, childrenWidth)
+
+    const renderMore = () => {
+      if (showMore) {
+        return (<ul className={styles.linksMore}>
+          {
+            moreLinks
+              .map(renderLink(`${styles.linksItem} ${styles.linksItemMore}`, styles.linksItemLink))
+          }
+        </ul>)
+      }
+
+      return null
+    }
 
     const renderShowMore = () => {
       if (moreLinks.length) {
@@ -169,19 +199,8 @@ class Nav extends Component {
             title={formatMessage(messages.showMore)}
           >
             <Icon />
+            {renderMore()}
           </li>)
-      }
-
-      return null
-    }
-    const renderMore = () => {
-      if (showMore) {
-        return (<ul className={styles.linksMore}>
-          {
-            moreLinks
-              .map(renderLink(`${styles.linksItem} ${styles.linksItemMore}`, styles.linksItemLink))
-          }
-        </ul>)
       }
 
       return null
@@ -190,15 +209,14 @@ class Nav extends Component {
     return (
       <nav className={styles.container}>
         <div className={styles.links} ref={this.setLinksContainer}>
-          <ul className={styles.linksVisible}>
+          <ul className={styles.linksVisible} style={visibleStyle}>
             {
               /* Render all links on initial rendering to make measurements */
               (initialRendering ? links : visibleLinks)
-                .map(renderLink(styles.linksItem, styles.linksItemLink))
+                .map(renderLink(styles.linksItem, styles.linksItemLink, visibleItemStyle))
             }
             {renderShowMore()}
           </ul>
-          {renderMore()}
         </div>
         <span className={styles.random}>
           <Link to="/recipes/random" className={styles.randomText}>
@@ -210,4 +228,14 @@ class Nav extends Component {
   }
 }
 
-export default injectIntl(Nav)
+export const Nav = injectIntl(Navigation)
+
+const mapStateToProps = state => ({
+  showMore: state.ui.headerNav.showMore
+})
+
+const mapDispatchToProps = dispatch => ({
+  toggle: () => dispatch(toggle())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)
