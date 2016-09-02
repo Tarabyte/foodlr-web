@@ -26,11 +26,13 @@
   &-more {
     position: absolute;
     top: 0;
-    left: 0;
-    width: calc(100% + 1em);
+    right: -1em;
     border: 1px solid var(--dark-grey);
     border-top: 2px solid var(--black);
     margin-top: calc(var(--height) - var(--item-border-width));
+    padding-right: 1em;
+    display: flex;
+    flex-direction: column;
   }
 
   &-item {
@@ -39,8 +41,9 @@
     border: var(--item-border-width) solid transparent;
 
     &-more {
-      display: block;
+      display: inline-block;
       padding-top: 1em;
+      padding-right: 0;
       text-align: right;
 
       &:last-child {
